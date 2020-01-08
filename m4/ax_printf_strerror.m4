@@ -8,7 +8,7 @@
 #
 # DESCRIPTION
 #
-#   Check to see if printf() has %s implemented (i.e. can handle strerror
+#   Check to see if printf() has %m implemented (i.e. can handle strerror
 #   internally)
 #
 # LICENSE
@@ -43,7 +43,7 @@
 #  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 #  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_PRINTF_STRERROR],
          [AC_PREREQ([2.63])dnl
@@ -61,7 +61,6 @@ AC_DEFUN([AX_PRINTF_STRERROR],
                         [ax_cv_have_printf_strerror=no],
                         [ax_cv_have_printf_strerror=no])
          AC_LANG_POP])
-         AC_MSG_CHECKING([checking for cxx_gcc_abi_demangle])
          AC_MSG_RESULT(["$ax_cv_have_printf_strerror"])
          AS_IF([test "x$ax_cv_have_printf_strerror" = xyes],
                [AC_DEFINE([HAVE_PRINTF_STRERROR],[1],[define if printf supports directly print errno])])
